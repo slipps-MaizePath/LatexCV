@@ -1,0 +1,73 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{settings}[2025/06/10 CV formatting]
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem} %numbering
+\setlist[itemize]{noitemsep, topsep=0pt, leftmargin=*} %globally, no spacing between items
+\usepackage{hyperref} %enable hyperlinks
+\usepackage{xcolor}
+\usepackage{fontawesome5} %icons
+\usepackage{academicons} %orcid and google scholar
+\usepackage{simpleicons} %icons
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{tabularx} %for 2 col fellowships and awards
+\usepackage{ragged2e} % for better text wrapping
+%making the bibliography
+%\usepackage[style=apa, backend=biber, sorting=nyt, doi=true, url=false, isbn=false]{biblatex}
+\usepackage{biblatex}
+\setlength\bibitemsep{0.3em}
+
+%for the gradient swooshes
+\usepackage{tikz}
+
+\definecolor{MarkerColour}{HTML}{000000}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\pagestyle{empty}
+
+\newcommand{\contactinfo}{
+ \begin{center}
+  {\Large \sffamily \textbf{SARAH LIPPS}} \\
+  \faEnvelope[regular] \href{mailto:slipps@illinois.edu}{slipps@illinois.edu} \quad
+  \faGithub \href{https://github.com/slipps-MaizePath}{slipps-MaizePath}\quad
+  %\faPhone*~(217) 979-7302 \\
+  %\aiOrcid~\href{http://www.orcid.org/0000-0001-8217-1636}{0000-0001-8217-1636} \quad
+  \aiGoogleScholar~\href{https://scholar.google.com/citations?user=u6clSGMAAAAJ&hl=en}{GoogleScholar} \quad
+  \faLinkedin~\href{https://www.linkedin.com/in/sarahlipps-uiuc}{sarahlipps-uiuc}
+\end{center}
+}
+
+%custom entry macro
+\newcommand{\entry}[4]{
+    \noindent
+    \textbf{#2} #3 \hfill \textbf{#1} \par
+    \ifx&#4&%
+    %do nothing if #4 is empty
+    \else
+        {\hangindent=2em\hangafter=1 \emph{#4}\par}
+    \fi
+    \vspace{0.75ex}
+}
+
+%custom bibliography macro
+%adds icon before DOI
+\DeclareFieldFormat{doi}{%
+    \scalebox{0.7}{\faLink}~\href{https://doi.org/#1}{#1}
+}
+%adjust spacing between bibliography entries
+%\setlength{\bibitemsep}{1em}
+
+%custom headings
+%my fav papers
+\defbibheading{selectpubs}{
+    %\vspace{0.25em}
+    \noindent\textbf{Journal articles (3 of 7)}\par
+    %\vspace{0.25em}
+}
+%my fav talks
+\defbibheading{selectoral}{
+    %\vspace{0.25em}
+    \noindent\textbf{Oral Communications (3 of 12)}\par
+    %\vspace{0.25em}
+}

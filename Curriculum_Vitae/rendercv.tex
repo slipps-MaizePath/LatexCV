@@ -1,0 +1,31 @@
+\documentclass[11pt,a4paper]{article}
+
+%bibliography nonsense
+\PassOptionsToPackage{backend=biber}{biblatex}
+\PassOptionsToPackage{style=ieee,sorting=ydnt,uniquename=init,defernumbers=true,maxnames=14,uniquelist=false}{biblatex}
+
+% Load shared settings.sty
+\usepackage{settings}
+\usepackage{enumitem}
+
+%it wont render if you don't have a biblatex file dum-dum!
+\DefineBibliographyStrings{english}{url={\textsc{url}}}
+\addbibresource{lipps_bib.bib}
+
+% Optional: title and contact info
+%\title{Curriculum Vitae}
+%\author{Sarah Lipps}
+%\date{}
+
+\begin{document}
+
+%\maketitle
+\contactinfo
+
+\input{education}
+\input{experience}
+\input{lead-mentor}
+\input{publications_short}
+\input{awards}
+
+\end{document}
